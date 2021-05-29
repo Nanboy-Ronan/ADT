@@ -1,5 +1,24 @@
-/* This defines a simple hashtable (integer) implemented using the index of key to hash */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-typedef struct Data Data;
+/* This defines a simple hash table (integer, integer) with seperate chain */
+#define CAPACITY 100000
+
+typedef struct Entry Entry;
+
+typedef struct Table Table;
+
+int hash(int key);
+
+Entry* hashEntry(int key, int value);
+
+Table* hashTableInit();
+
+void hashTableDestory(Table* hashtable);
+
+void hashPut(Table* hashtable, int key, int value);
+
+int hashGet(Table* hashtable, int key);
+
+void hashDelete(Table* hashtable, int key);

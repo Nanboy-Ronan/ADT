@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <limits.h>
 
-/* This defines a simple hash table for string with linear probe */
+/* This defines a simple hash table (string, string) with seperate chain */
 #define CAPACITY 100000
 
 typedef struct Entry Entry;
@@ -22,4 +21,4 @@ void hashPut(Table* hashtable, const char* key, const char* value);
 
 char* hashGet(Table* hashtable, const char* key);
 
-oid hashDelete(Table* hashtable, const char *key);
+void hashDelete(Table* hashtable, const char *key);

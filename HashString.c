@@ -3,7 +3,7 @@
 typedef struct Entry{
     char *key;
     char *value;
-    Table *next;
+    Entry *next;
 } Entry;
 
 typedef struct Table{
@@ -14,7 +14,7 @@ int hash(const char* key){
     int value = 0;
     int lenth = strlen(key);
 
-    for(int i = 0; i < lenth; ++i){
+    for(int i = 0; i < lenth; i++){
         value = 2 * value + key[i];
     }
 
@@ -153,26 +153,4 @@ void hashPrint(Table *hashtable) {
 
         printf("\n");
     }
-}
-
-int main(){
-    // printf("%d\n", hash("em"));
-    // printf("%d\n", hash("russian"));
-    // printf("%d\n", hash("pizza"));
-    // printf("%d\n", hash("doge"));
-    // printf("%d\n", hash("pyro"));
-    // printf("%d\n", hash("joost"));
-    // printf("%d\n", hash("kalix"));
-    // printf("%d\n", hash("kalix"));
-    Table* table = hashTableInit();
-    hashPut(table, "name1", "em");
-    hashPut(table, "name2", "russian");
-    hashPut(table, "name3", "pizza");
-    hashPut(table, "name4", "doge");
-    hashPut(table, "name5", "pyro");
-    hashPut(table, "name6", "joost");
-    hashPut(table, "name7", "kalix");
-
-    hashTableDestory(table);
-    //ht_dump(table);
 }
