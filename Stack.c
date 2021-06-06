@@ -34,13 +34,14 @@ ElementType StackPop(Stack* stack){
     assert(stack);
     /* Resize if the size of the array is one quarter of its capacity */
     if(stack->top < 0.25*stack->capacity){
-        ElementType* a = malloc(0.25*stack->capacity*sizeof(ElementType));
+        int size = ceil(0.25*stack->capacity);
+        ElementType* a = malloc(size*sizeof(ElementType));
         for(int i = 0; i <= stack->top - 1; i++){
             a[i]=stack->a[i];
         }
         free(stack->a);
         stack->a = a;
-        stack->capacity = 0.25*stack->capacity;
+        stack->capacity = size;
     }
     ElementType temp;
     if(stack->top > 0){

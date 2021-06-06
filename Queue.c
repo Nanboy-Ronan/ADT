@@ -46,7 +46,8 @@ ElementType dequeue(Queue* queue){
     assert(queue);
     /* Resize if the size of the array is one quarter of its capacity */
     if(queue->numOfElements < 0.25*queue->capacity){
-        ElementType* a = malloc(0.25*queue->capacity*sizeof(ElementType));
+        int size = ceil(0.25*queue->capacity);
+        ElementType* a = malloc(size*sizeof(ElementType));
         int index = 0;
         for(int i = queue->front; i <= queue->rear; i++){
             a[index]=queue->a[i];
@@ -56,7 +57,7 @@ ElementType dequeue(Queue* queue){
         queue->a = a;
         queue->front = 0;
         queue->rear = queue->numOfElements - 1;
-        queue->capacity = 0.25*queue->capacity;
+        queue->capacity = size;
 
     }
     ElementType temp;
