@@ -6,4 +6,5 @@ These libraries were created containing common abstract data type (ADT) in C, gi
 - Stack
 - HashMap (String, String)
 - HashMap (Integer, Integer)
+- Deque
  
