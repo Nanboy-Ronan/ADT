@@ -80,7 +80,7 @@ ElementType dequeue(Queue* queue){
     if(queue->numOfElements < 0.25*queue->capacity){
         int size = ceil(0.25*queue->capacity);
         ElementType* a = malloc(size*sizeof(ElementType));
-        if(queue->front < queue->rear){
+        if(queue->front <= queue->rear){
             int index = 0;
             for(int i = queue->front; i <= queue->rear; i++){
                 a[index] = queue->a[i];
